@@ -62,13 +62,13 @@ public class MessageService {
         else if (messRepo.existsById(messageID) == false)
             throw new MessageNotFoundException();
         
-        return messRepo.updateMessage(messageID, messageText);      //autoboxes the int return value to Integer 
+        return messRepo.updateMessage(messageID, messageText);      //returns number of rows updated
     }
 
 
 //DELETE MESSAGE
     public Integer deleteMessageById(int messageID) {
-        return messRepo.customDeleteById(messageID);                //autoboxes the int return value to Integer
+        return messRepo.customDeleteById(messageID);                //returns number of rows updated
     }
     
 }
