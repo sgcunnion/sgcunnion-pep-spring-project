@@ -56,14 +56,14 @@ public class MessageService {
 
 
 //UPDATE MESSAGE
-    public ResponseEntity<Integer> updateMessageById(int messageID, String messageText) 
+    public Integer updateMessageById(int messageID, String messageText) 
         throws InvalidMessageException, MessageNotFoundException {
         if (messageText.isBlank() || messageText.length() > 255)   
             throw new InvalidMessageException();                           
         else if (messRepo.existsById(messageID) == false)
             throw new MessageNotFoundException();
-        Integer rowsUpdated = messRepo.updateMessage(messageID, messageText);  //autoboxes the int return value to Integer
-        return ResponseEntity.ok(rowsUpdated); 
+        
+        return messRepo.updateMessage(messageID, messageText);      //autoboxes the int return value to Integer 
     }
 
 

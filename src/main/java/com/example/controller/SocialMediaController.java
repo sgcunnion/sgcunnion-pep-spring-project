@@ -103,7 +103,7 @@ public class SocialMediaController {
     @PatchMapping("/messages/{messageID}")
     public ResponseEntity<Integer> updateMessage(@PathVariable int messageID, @RequestBody Message message) 
         throws InvalidMessageException, MessageNotFoundException {
-        return messServ.updateMessageById(messageID, message.getMessageText());
+        return ResponseEntity.ok(messServ.updateMessageById(messageID, message.getMessageText()));
     }
 
 
